@@ -5,7 +5,20 @@ const loadData = () => {
         // .then(data => console.log(data))
 };
 
-const displayData = allCountries => {
-    const countries = allCountries.map(country,)
+const displayData = countries => {
+    console.log(countries[0])
+    const allCountries = countries.map(country => getCountryHTML(country));
+    const container = document.getElementById('countries');
+    container.innerHTML = allCountries.join(' ')
+
+}
+const getCountryHTML = country => {
+    return `
+    <div>
+        <h3>${country.name.common}</h3>
+        <img src="${country.flags.png}">
+    </div>
+    
+    `
 }
 loadData()
