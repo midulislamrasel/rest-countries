@@ -12,13 +12,18 @@ const displayData = countries => {
     container.innerHTML = allCountries.join(' ')
 
 }
-const getCountryHTML = country => {
+const getCountryHTML = ({name, flags, population, capital,area}) => {
+    // const { name, flags, population, capital } = country
+    const { common } = name;
+    const { png } = flags;
     return `
+
     <div class="single_country">
-        <h3>${country.name.common}</h3>
-        <img src="${country.flags.png}">
-        <p>Population: ${country.population}</p>
-        <p>Population: ${country.capital}</p>
+        <h3>${common}</h3>
+        <img src="${png}">
+        <p>Population: ${population}</p>
+        <p>Population: ${capital}</p>
+        <p>Area: ${area}</p>
     </div>
     
     `
